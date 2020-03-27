@@ -1,0 +1,28 @@
+spring.application.name: application-status
+
+server:
+  port: 8081
+  servlet.context-path: /app
+
+spring.cloud.stream.bindings.statusEvent-in-0:
+  destination: application-status
+  consumer:
+    default.value.serde: se.kf.stream.kafkastream.serde.StatusEventSerde
+
+# Common kafka configuration
+spring.cloud.stream.kafka.streams.binder:
+  brokers: localhost:9092
+  deserializationExceptionHandler: logAndContinue
+  applicationId: ${spring.application.name}-cg
+  configuration:
+    application.server: localhost:8081
+    allow.auto.create.topics: false
+    default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    commit.interval.ms: 1000
+    security.protocol: PLAINTEXT
+    ssl.protocol: SSL
+    ssl.truststore.location: ''
+    ssl.truststore.password: ''
+    ssl.truststore.type: JKS
+    sasl.mechanism: SCRAM-SHA-256
