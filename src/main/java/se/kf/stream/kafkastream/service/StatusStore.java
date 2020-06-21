@@ -53,5 +53,4 @@ public class StatusStore {
         "app/query/" + applicationId);
     return restTemplate.getForEntity(uri, String.class).getBody();
   }
-
 }
