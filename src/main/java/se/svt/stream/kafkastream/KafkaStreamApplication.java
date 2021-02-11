@@ -1,4 +1,4 @@
-package se.kf.stream.kafkastream;
+package se.svt.stream.kafkastream;
 
 
 import org.springframework.boot.SpringApplication;

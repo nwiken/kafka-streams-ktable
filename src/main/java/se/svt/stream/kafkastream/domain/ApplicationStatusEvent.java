@@ -1,4 +1,4 @@
-package se.kf.stream.kafkastream.domain;
+package se.svt.stream.kafkastream.domain;
 
 import lombok.Data;
 

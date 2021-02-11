@@ -1,4 +1,4 @@
-package se.kf.stream.kafkastream.configuration;
+package se.svt.stream.kafkastream.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.streams.kstream.KStream;
@@ -6,7 +6,7 @@ import org.apache.kafka.streams.kstream.Materialized;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import se.kf.stream.kafkastream.domain.ApplicationStatusEvent;
+import se.svt.stream.kafkastream.domain.ApplicationStatusEvent;
 
 import java.util.function.Consumer;
 

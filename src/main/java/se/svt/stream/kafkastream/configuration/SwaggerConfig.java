@@ -1,5 +1,6 @@
-package se.kf.stream.kafkastream.configuration;
+package se.svt.stream.kafkastream.configuration;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -20,8 +21,8 @@ public class SwaggerConfig {
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.any())
-        .paths(PathSelectors.any())
+        .apis(RequestHandlerSelectors.basePackage("se.svt.stream.kafkastream.rest"))
+        .paths(Predicates.and(PathSelectors.ant("/**"), Predicates.not(PathSelectors.ant("/"))))
         .build();
   }
 }

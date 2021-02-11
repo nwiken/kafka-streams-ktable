@@ -1,4 +1,4 @@
-package se.kf.stream.kafkastream.service;
+package se.svt.stream.kafkastream.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
@@ -9,6 +9,7 @@ import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import se.svt.stream.kafkastream.exception.NotFoundException;
 
 import java.util.Optional;
 
@@ -39,7 +40,7 @@ public class StatusStore {
       ReadOnlyKeyValueStore<String, String> keyValueStore =
           interactiveQueryService.getQueryableStore(STATUS_STORE, QueryableStoreTypes.keyValueStore());
       return Optional.ofNullable(keyValueStore.get(id))
-          .orElseThrow(() -> new IllegalArgumentException("Status not found for application " + id));
+          .orElseThrow(() -> new NotFoundException("Status not found for application " + id));
     } catch (InvalidStateStoreException e) {
       log.warn("Invalid state store might retry. Message {}", e.getMessage());
       throw new InvalidStateStoreException(e);

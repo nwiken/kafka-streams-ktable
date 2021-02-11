@@ -1,4 +1,4 @@
-package se.kf.stream.kafkastream;
+package se.svt.stream.kafkastream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

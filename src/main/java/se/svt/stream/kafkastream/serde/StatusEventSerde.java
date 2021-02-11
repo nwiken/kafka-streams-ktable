@@ -1,6 +1,6 @@
-package se.kf.stream.kafkastream.serde;
+package se.svt.stream.kafkastream.serde;
 
-import se.kf.stream.kafkastream.domain.ApplicationStatusEvent;
+import se.svt.stream.kafkastream.domain.ApplicationStatusEvent;
 
 import org.springframework.kafka.support.serializer.JsonSerde;
 
